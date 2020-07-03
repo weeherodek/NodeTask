@@ -1,0 +1,26 @@
+{
+  "name": "nodetask",
+  "version": "1.0.0",
+  "description": "Gerenciador de tarefas feito em Node com API e Front",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weeherodek/NodeTask.git"
+  },
+  "author": "Herodek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weeherodek/NodeTask/issues"
+  },
+  "homepage": "https://github.com/weeherodek/NodeTask#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
