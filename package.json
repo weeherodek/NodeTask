@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/weeherodek/NodeTask#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.5",
+    "handlebars": "^4.7.6",
+    "mongoose": "^5.9.21",
+    "pug": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

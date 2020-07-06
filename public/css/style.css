@@ -1,0 +1,211 @@
+:root{
+    font-size: 16px;
+    font-family: 'Montserrat',Impact, fantasy, sans-serif;
+    --text-primary:darkgray;
+    --text-seconday:#ececec;
+    --bg-primary:darkcyan;
+    --bg-secondary:#141418;
+}
+
+a {
+    text-decoration: none;
+    color: white;}
+
+a:visited {
+     text-decoration: none;
+    }
+
+body{
+    margin: 0;
+    height: 100%;
+    font-family: 'Montserrat',Impact, fantasy, sans-serif;
+    margin-bottom: 400px;
+}
+
+body::-webkit-scrollbar{
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+    background:#1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #6649B8;
+}
+
+.w33{
+    width: 33%;
+}
+
+.w50{
+    width: 50%;
+}
+
+.w100{
+    width: 100%;
+}
+
+
+.body{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 50px;  
+}
+
+.navbar{
+ width: 100%;
+ height: 50px;
+ margin: 0;
+ background-color: var(--bg-primary); 
+}
+
+.navbar ul{
+    padding-top: 20px;
+    margin-top: 0;
+}
+
+.navbar li{
+    display: inline;
+    color:white;
+    padding-left: 50px;
+}
+
+.nav_img{
+    padding-right: 8px;
+}
+
+.nav_logo{
+    position: static;
+}
+
+.nav_login{
+    color:white;
+    padding-right: 3px;
+    position: relative;
+    float: right;
+    margin-right: 15px;
+}
+
+.btn-login{
+    background: gray;
+    color: black;
+    border: 1px black;
+}
+
+.btn-login:hover{
+    background:white;
+    color: black;
+    border: 1px black;
+}
+
+
+.footer{
+    position: absolute;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.content{
+    background-color: #efefef;
+}
+
+.about{
+    text-align: center;
+}
+
+.links{
+    text-align: center;
+}
+
+.contact-form{
+    text-align: initial;
+}
+
+.form-group{
+    margin: 15px;
+}
+
+.label{
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+}   
+
+footer .content{
+    background-color: lightblue;
+    color: black;
+    margin-bottom: 0px;
+    width: 100%;
+    display: flex;
+}
+
+.footer-section{
+    flex: 1;
+    border:1px solid white;
+    padding: 25px;
+}
+
+.footer-bottom{
+    position: static;
+    background-color: darkcyan;
+    color: white;
+    text-align: center;
+    margin-bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.footer-bottom p{
+    text-align:center;
+    padding: 8PX;
+}
+
+.social .img-social{
+    width: 50px;
+}
+
+.social .img-social:hover{
+    border: 1px white solid;
+}
+
+.links ul a{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: black;
+}
+
+.links ul a:hover{
+    color: white;
+    margin-left: 15px;
+    transition: all .3s;
+}
+
+.contact-form .contact-input{
+    padding-left: 15px;
+    width: 90%;
+    background: lightgrey;
+    color: black;
+    border:none;
+}
+
+.contact-form .contact-input:hover{
+    background: white;
+}
+
+.footer-section .enviar{
+    background: lightgrey;
+    padding: 5px;
+    float: right;
+    border: 1px;
+    margin-top: 5px;
+    margin-right: 2.5rem;
+}
+
+.footer-section .enviar:hover{
+    background-color: white;
+}
+.footer-section img{
+    width: 25px;
+    padding-right:3px;
+}
