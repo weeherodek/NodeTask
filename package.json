@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/weeherodek/NodeTask#readme",
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.5",
+    "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "mongoose": "^5.9.21",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.0"
   },
   "devDependencies": {

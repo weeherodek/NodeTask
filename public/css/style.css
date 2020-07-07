@@ -77,6 +77,10 @@ body::-webkit-scrollbar-thumb{
 
 .nav_logo{
     position: static;
+    text-align: center;
+    padding-left: 135px;
+    align-items: center;
+
 }
 
 .nav_login{
@@ -87,16 +91,26 @@ body::-webkit-scrollbar-thumb{
     margin-right: 15px;
 }
 
+.register{
+    float: right;
+    margin-right: 15px;
+}
+
 .btn-login{
     background: gray;
     color: black;
     border: 1px black;
+    padding: 3px;
 }
 
 .btn-login:hover{
     background:white;
     color: black;
     border: 1px black;
+}
+
+.login_img{
+    padding-right: 4px;
 }
 
 
@@ -208,4 +222,49 @@ footer .content{
 .footer-section img{
     width: 25px;
     padding-right:3px;
+}
+
+.user-register{
+    color: blue;
+    font-size: 1.6rem;
+}
+
+.login{
+    margin: auto;
+    align-content: center;
+}
+
+.login_form{
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    padding: 15px;
+    height: 150px;
+    width: 150px;
+    position: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.img_login_top{
+    display: block;
+    margin: auto;
+    width: 56px;
+    align-items: center;
+}
+
+.btn_login{
+    margin-top: 12px;
+    color:var(--text-seconday);
+    background-color: var(--bg-primary);
+    border: none;
+    padding: 5px;
+}
+
+.login_img{
+    padding-left: 1px;
+    align-content: center;
+    padding-right: 0;
+    margin: 0;
+    padding-bottom: 0;
 }
