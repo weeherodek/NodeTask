@@ -1,0 +1,10 @@
+{{#each user}}
+<Label>Nome: </Label>{{name}}<br>
+<label>Email: </label>{{email}}<br>
+<label>Nome Completo: </label>{{name}} {{middlename}} {{lastName}}<br>
+<label>Data de Criação: </label> {{createDate}}
+<hr>
+
+{{else}}
+<h2>Nenhum usuário cadastrado.</h2>
+{{/each}}
