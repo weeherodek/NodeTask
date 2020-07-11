@@ -38,7 +38,7 @@ router.post("/add/new",(req,res)=>{
         new Task(newTask).save((err)=>{
             if(err){
                 req.flash("error_msg","Houve um erro interno ao salvar sua task, tente novamente !")
-                res.redirect("task/task")
+                res.redirect("/../task/add")
             }
             else{
                 req.flash("success_msg","Tarefa adicionada com sucesso !")

@@ -94,9 +94,13 @@ body::-webkit-scrollbar-thumb{
 .nav_login{
     color:white;
     padding-right: 3px;
-    position: relative;
     float: right;
-    margin-right: 15px;
+    margin-right: 5px;
+}
+
+.btn-register-navbar{
+    float: right;
+    margin:auto;
 }
 
 .register{
@@ -105,10 +109,14 @@ body::-webkit-scrollbar-thumb{
 }
 
 .btn-login{
+    border: none;
+    border-radius: 8%;
+    font-weight: bold;
     background: gray;
-    color: black;
-    border: 1px black;
-    padding: 3px;
+    padding: 4px;
+    float: right;
+    margin-left: 15px;
+    margin-top: 0px;
 }
 
 .btn-login:hover{
@@ -268,11 +276,12 @@ footer .content{
 }
 
 .btn_login{
-    margin-top: 12px;
-    color:var(--text-seconday);
-    background-color: var(--bg-primary);
     border: none;
-    padding: 5px;
+    border-radius: 8%;
+    font-weight: bold;
+    background: gray;
+    padding: 6px;
+    float: right;
 }
 
 .login_img{
@@ -391,3 +400,15 @@ footer .content{
     border-radius: 8%;
     width: 400px;
 }
+
+.logout{
+    border: none;
+    border-radius: 8%;
+    font-weight: bold;
+    background: gray;
+    padding: 4px;
+    float: right;
+    margin-left: 15px;
+    margin-top: 0px;
+}
+

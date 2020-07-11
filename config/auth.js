@@ -33,11 +33,11 @@ module.exports = function(passport){
 
 
     passport.serializeUser((user,done)=>{
-        done(null,user._id)
+        done(null, user.id)
     })
 
-    passport.deserializeUser((user,done)=>{
-        User.findById(user._id,(err,user)=>{
+    passport.deserializeUser((id,done)=>{
+        User.findById(id,(err,user) =>{
             done(err,user)
         })
     })

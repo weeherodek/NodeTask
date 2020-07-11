@@ -15,17 +15,22 @@
     <li>
       <a class="nav_logo" href="/"><i class="nav_logo fas fa-thumbtack"></i> NodeTask</a>
     </li>
+    {{#if user}}
     <li>
-      <span class="nav_login">Bem vindo !</span>
+      <span class="nav_login">Bem vindo ! <a href="/user/logout"><button class="logout"> <i class="fas fa-sign-out-alt"></i> Logout</button></a></span>
     </li>
-    <!--
-    <form class="nav_login" method="POST" action="/">
-      <label for="login">Usuário</label>
-        <input type="text" placeholder="Usuário" name="login" id="login">
-      <label for="senha">Senha</label>
-        <input type="password" placeholder="Senha" name="senha" id="senha">
+    {{else}}
+    <div class="nav_login">
+      <form method="POST" action="/user/login">
+        <label for="login">Usuário</label>
+          <input type="text" placeholder="Usuário" name="user" id="login">
+      
+        <label for="password">Senha</label>
+          <input type="password" placeholder="Senha" name="password" id="senha">
         <button class="btn-login"><i class="login_img fas fa-sign-in-alt"></i>Entre</button>
-        <a href="/user/register"><button class="btn-login"><i class="login_img fas fa-user-plus"></i>Cadastre-se</button></a>!-->
         </form>
+    </div>
+    {{/if}}    
+   
   </ul>
 </nav>

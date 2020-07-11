@@ -39,7 +39,7 @@ app.use((req,res,next) =>{
     res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("error_msg")
     res.locals.error = req.flash("error")
-    res.locals.user = req.user || null
+    res.locals.user = req.user
     next()
 })
 
@@ -66,7 +66,7 @@ app.use(express.static(path.join(__dirname,'public')))
 
 //Mongoose
 
-mongoose.connect("mongodb://localhost/nodetask",{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect("mongodb://localhost/nodetask", {useNewUrlParser:true,useUnifiedTopology:true})
 const db = mongoose.connection;
 db.on('err', console.error.bind(console,'Erro na conexão'));
 db.once('open', ()=>{console.log('Banco conectado !')})
@@ -90,5 +90,5 @@ app.get("/", (req,res)=>{
 
 const port = process.env.PORT || 8080
 app.listen(port, ()=>{
-    console.log("Node rodando na porta: "+port)
+    console.log("Node rodando na porta: "+ port)
 })

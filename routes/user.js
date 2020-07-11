@@ -4,7 +4,8 @@ const path = require('path')
 const passport = require('passport')
 const bcrypt = require('bcrypt')
 const { ifError } = require('assert')
-
+const { authAdmin} = require('../helpers/authAdmin')
+const { authLogin } = require('../helpers/authLogin')
 const router = express.Router()
 
 require('../models/User')
@@ -75,12 +76,9 @@ router.post('/register/new', (req,res)=>{
     
 })
     
-    
-    
+   
 
-    
-
-router.get('/all', (req,res)=>{
+router.get('/all', authLogin, (req,res)=>{
     User.find().lean().then((user)=>{
         res.render('user/all', {user:user})
     })
@@ -93,11 +91,18 @@ router.get('/login', (req,res)=>{
 })
 
 router.post('/login', (req,res,next)=>{
+    console.log(req.user)
     passport.authenticate("local",{
         successRedirect:"/",
         failureRedirect:"/user/login",
         failureFlash: true
-    })(req,res,next)
+    })
+    (req,res,next)
+})
+
+router.get('/logout', (req,res,next)=>{
+    req.user = null;
+    res.render('home')
 })
 
 module.exports = router;
