@@ -24,7 +24,7 @@ require('./config/auth')(passport)
 
 
 app.use(session({
-    secret:"cursodenode",
+    secret:"nodetask",
     resave:true,
     saveUninitialized:true
 }))
@@ -36,9 +36,9 @@ app.use(flash())
 
 //Middleware
 app.use((req,res,next) =>{
-    res.locals.success_msg = req.flash("sucess_msg")
+    res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("error_msg")
-    res.locals.erro = req.flash("error")
+    res.locals.error = req.flash("error")
     res.locals.user = req.user || null
     next()
 })

@@ -15,6 +15,14 @@ a:visited {
      text-decoration: none;
     }
 
+textarea {
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
 body{
     margin: 0;
     height: 100%;
@@ -143,6 +151,7 @@ body::-webkit-scrollbar-thumb{
 .label{
     margin-bottom: 10px;
     padding-bottom: 15px;
+    font-size: bold;
 }   
 
 footer .content{
@@ -151,12 +160,14 @@ footer .content{
     margin-bottom: 0px;
     width: 100%;
     display: flex;
+    font-size: bold;
 }
 
 .footer-section{
     flex: 1;
     border:1px solid white;
     padding: 25px;
+    font-weight: bold;
 }
 
 .footer-bottom{
@@ -172,6 +183,7 @@ footer .content{
 .footer-bottom p{
     text-align:center;
     padding: 8PX;
+    font-weight: bold;
 }
 
 .social .img-social{
@@ -201,6 +213,7 @@ footer .content{
     background: lightgrey;
     color: black;
     border:none;
+    font-weight: bold;
 }
 
 .contact-form .contact-input:hover{
@@ -214,6 +227,7 @@ footer .content{
     border: 1px;
     margin-top: 5px;
     margin-right: 2.5rem;
+    font-weight: bold;
 }
 
 .footer-section .enviar:hover{
@@ -267,4 +281,113 @@ footer .content{
     padding-right: 0;
     margin: 0;
     padding-bottom: 0;
+}
+
+.success_msg{
+    margin: 15px;
+    padding: 8px;
+    border: green 2px solid;
+    background-color: lawngreen;
+    font-size: 2rem;
+    color: lightslategray;
+}
+
+.error_msg{
+    margin: 15px;
+    padding: 8px;
+    border: lightcoral 2px solid;
+    background-color: salmon;
+    font-size: 2rem;
+    color: darkslateblue;
+    margin-bottom: 20px;
+}
+
+.error{
+        margin: 15px;
+        padding: 8px;
+        border: lightsalmon 2px solid;
+        background-color: salmon;
+        font-size: 2rem;
+        color: black;
+    
+}
+
+.register-form{
+    border: bisque 1px solid;
+    margin: auto;
+    margin-left: 20%;
+    height: 200px;
+    width: 700px;
+    display: inline-block;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.row{
+    width: 650px;
+}
+
+.register-form label{
+    padding: 5px;
+    margin:5px;
+    width: 20%;
+}
+
+.register-form input{
+    padding: 3px;
+    margin: 3px;
+}
+
+.btn-register{
+    border: 1px black solid;
+    background: cadetblue;
+    padding: 5px;
+    color: cornsilk;
+    margin-left: 20px;
+}
+
+.btn-register:hover{
+    background: darkgray;
+    color: black;
+}
+
+.register-form input:hover{
+    background: darkgray;
+    color: black;
+}
+
+.btn-addtask{
+    border: none;
+    background: palegreen;
+    float: right;
+    margin-left: 35px;
+    margin: auto;
+    box-shadow: 1px 1px green;
+    padding: 3px;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+.btn-finishtask{
+    border: none;
+    background: palegreen;
+    margin-left: 35px;
+    margin: auto;
+    box-shadow: 1px 1px green;
+    padding: 3px;
+    font-size: 1.0rem;
+    font-weight: 600;
+    border-radius: 8%;
+}
+
+.row{
+    padding: 5px;
+    margin: auto;
+
+}
+
+.newtask{
+    margin: auto;
+    border-radius: 8%;
+    width: 400px;
 }

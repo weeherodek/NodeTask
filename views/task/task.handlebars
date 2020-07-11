@@ -1,9 +1,27 @@
 {{#each task}}
 
+    <div class="task">
+        <span>To do</span>
+            
+
+
+
+
+        <span>Done</span>
+
+
+    </div>
+
 {{else}}
 
+<div>
+<a href="/../task/add"><button class="btn-addtask"><i class="fas fa-plus-square"></i> Adicionar</button></a>
+</div>
+
+<div>
 <h2>
     Nenhuma task atribuída a esse usuário !
 </h2>
+</div>
 
 {{/each}}

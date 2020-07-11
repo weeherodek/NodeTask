@@ -1,29 +1,45 @@
-<form action="/user/register/new" method="POST">
-
+{{#each error_register}}
+<div class="error_msg">{{text}}</div>
+{{/each}}
+<div class="register-form">
+    <center><img src="/../img/login_top.png" width="50px"></center>
+<center><form action="/../user/register/new" method="POST">
+<div class="row">
 <label for="user">Usuário:</label>
-    <input type="text" id="user" name="user" placeholder="Usuário">
+    <input type="text" id="user" name="user" placeholder="Digite seu usuário..." required>
+    
+<label for="name">Nome:</label>
+    <input type="text" name="name" id="name" placeholder="Digite seu primeiro nome..." required>
 
-<label for="password">Senha:</label>
-    <input type="password" name="password" id="password" placeholder="Senha...">
+</div>
 
-<label for="password2">Confirme sua senha:</label>
-    <input type="password" name="password2" id="password2" placeholder="Confirme sua senha...">
+<div class="row">
+<label for="middlename">Nome do meio:</label>
+    <input type="text" name="middlename" id="middlename" placeholder="Digite seu nome do meio...">
 
+<label for="lastname">Último nome:</label>
+    <input type="text" name="lastname" id="lastname" placeholder="Digite seu último nome..." required>
+
+</div>
+
+<div class="row"> 
 <label for="email">Email:</label>
-    <input type="email" name="email" id="email">
+    <input type="email" name="email" id="email" placeholder="Digite seu email..." required>
 
 <label for="email2">Confirme seu e-mail:</label>
-    <input type="email" name="email2" id="email2">
+    <input type="email" name="email2" id="email2" placeholder="Confirme seu email..." required>
 
-<label for="name">Nome:</label>
-    <input type="text" name="name" id="name">
+</div>
+<div class="row">
 
-<label for="middlename">Nome do meio:</label>
-    <input type="text" name="middlename" id="middlename">
+<label for="password">Senha:</label>
+    <input type="password" name="password" id="password" placeholder="Senha..." required>
 
-<label for="lastname">Ultimo nome:</label>
-    <input type="text" name="lastname" id="lastname">
+<label for="password2">Confirme sua senha:</label>
+    <input type="password" name="password2" id="password2" placeholder="Confirme sua senha..." required>
+</div>
 
 <button class="btn-register" type="submit">Finalizar</button>
 
-</form>
+</form></center>
+</div>

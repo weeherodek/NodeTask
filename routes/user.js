@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 const passport = require('passport')
 const bcrypt = require('bcrypt')
+const { ifError } = require('assert')
 
 const router = express.Router()
 
@@ -21,36 +22,57 @@ router.get("/register", (req,res)=>{
 
 router.post('/register/new', (req,res)=>{
     
-    const newUser ={
-        user: req.body.user,
-        email: req.body.email,
-        password: req.body.password,
-        name: req.body.name,
-        middlename: req.body.middlename,
-        lastname: req.body.lastname
-    }
+    var error_register = [];
 
-    bcrypt.genSalt(10,(err,salt)=>{
-        bcrypt.hash(req.body.password,salt,(err,hash)=>{
+    if(req.body.email != req.body.email2)
+        error_register.push({text:"Confirme seu email !"})
 
-            if(err){
-                console.log("Houve um erro interno ao cadastrar seu usuário, tenta novamente !")
-            }
+    if(req.body.password != req.body.password2)
+        error_register.push({text:"Confirme sua senha !"})
 
-            newUser.password = hash
+    if(req.body.user == undefined || req.body.user.length <= 4)
+        error_register.push({text:"Usuário pequeno, tente outro maior !"})
 
-           new User(newUser).save((err)=>{
-            if(err){
-                console.log("Erro ao inserir novo usuário:" + err)
-            }
-            else{
-                console.log("Usuário cadastrado com sucesso !")
-                res.redirect("/")
-            }
-
+    if(req.body.name == undefined || req.body.name == "")
+        error_register.push({text:"Confirme seu nome"})
+    
+    if(req.body.lastname == undefined || req.body.lastname == "")
+        error_register.push({text:"Confirme seu último nome"})
+    if(error_register.length > 0)
+        res.render("user/register", {error_register:error_register})
+    else{
+        const newUser ={
+            user: req.body.user,
+            email: req.body.email,
+            password: req.body.password,
+            name: req.body.name,
+            middlename: req.body.middlename,
+            lastname: req.body.lastname
+        }
+    
+        bcrypt.genSalt(10,(err,salt)=>{
+            bcrypt.hash(req.body.password,salt,(err,hash)=>{
+    
+                if(err){
+                    console.log("Houve um erro interno ao cadastrar seu usuário, tenta novamente !")
+                }
+    
+                newUser.password = hash
+    
+               new User(newUser).save((err)=>{
+                if(err){
+                    req.flash("error_msg", "Houve um erro " + err + " ao tentar salvar o usuário.")
+                }
+                else{
+                    req.flash("success_msg","Usuário cadastrado com sucesso !")
+                    res.redirect("/")
+                }
+            
+                })
             })
         })
-    })
+    }
+    
 })
     
     
@@ -73,7 +95,8 @@ router.get('/login', (req,res)=>{
 router.post('/login', (req,res,next)=>{
     passport.authenticate("local",{
         successRedirect:"/",
-        failureRedirect:"/task/"
+        failureRedirect:"/user/login",
+        failureFlash: true
     })(req,res,next)
 })
 
