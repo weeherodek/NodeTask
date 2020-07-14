@@ -1,16 +1,16 @@
 <div class="newtask">
 <form class="newtask"  method="POST" action="/../task/add/new">
     <div class="row">
-    <label for="name">Nome:</label><br>
+    <label for="name">*Nome:</label><br>
         <input type="text" id="name" name="name" placeholder="Digite o nome da task..." required>
     </div>
     <div class="row">
-    <label for="description">Descrição:</label><br>
+    <label for="description">*Descrição:</label><br>
         <textarea id="description" name="description" rows="3" cols="30"placeholder="Digite a descrição ..."></textarea>
     </div>
     <div class="row">
     <label for="endDate">Prazo final:</label><br>
-        <input type="date" id="endDate" name="endDate"> <input type="time" id="endHour" name="endDate">
+        <input type="date" id="endDate" name="endDate" min="{{#date_Format}}{{minDate}}{{/date_Format}}"> <input type="time" id="endHour" name="endDate">
     </div>
     <div class="row">
     <label for="done">Finalizado ?</label>

@@ -4,7 +4,6 @@ const path = require('path')
 const passport = require('passport')
 const bcrypt = require('bcrypt')
 const { ifError } = require('assert')
-const { authAdmin} = require('../helpers/authAdmin')
 const { authLogin } = require('../helpers/authLogin')
 const router = express.Router()
 
@@ -91,7 +90,6 @@ router.get('/login', (req,res)=>{
 })
 
 router.post('/login', (req,res,next)=>{
-    console.log(req.user)
     passport.authenticate("local",{
         successRedirect:"/",
         failureRedirect:"/user/login",
@@ -101,8 +99,8 @@ router.post('/login', (req,res,next)=>{
 })
 
 router.get('/logout', (req,res,next)=>{
-    req.user = null;
-    res.render('home')
+    req.logout();
+    res.redirect('/')
 })
 
 module.exports = router;

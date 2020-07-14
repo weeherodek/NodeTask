@@ -1,27 +1,75 @@
-{{#each task}}
-
-    <div class="task">
+<div>
+<a href="/../task/add"><button class="btn-addtask"><i class="fas fa-plus-square"></i> Adicionar</button></a><br>
+</div>
+{{#if task}}
+  <div class="task">
+      <nav class="todo">
         <span>To do</span>
+        {{#each taskdone}}
+            <ul>
+                <li>
+                    <a href="/task/edit/{{_id}}"> <i class="fas fa-pencil-alt"></i></a>
+                    <a href="/task/delete/{{_id}}"> <i class="fa fa-times-circle" aria-hidden="true"></i></a>
+
+                    <label>Nome: {{name}}</label>
             
+                    <label>Descrição: {{description}}</label>
 
+                    <label>Data de criação: {{#dateFormat}}{{createDate}}{{/dateFormat}}</label>
+                
 
-
-
+                    {{#if endDate}}
+                        <label>Data de finalização: {{#dateFormat}}{{endDate}}{{/dateFormat}}</label>
+                    {{/if}}
+            
+                    <label>Done ?<input type="checkbox"></label>
+                    
+                </li>
+            </ul>
+        {{else}}
+            <li>
+                <h2>Nenhuma tarefa atribuída</h2>
+            </li>
+        {{/each}}
+        
+        </nav> <nav class="done">
         <span>Done</span>
-
-
+        
+        {{#each taskundone}}
+            <ul>
+                <li>
+                    <a href="#"> <i class="fas fa-pencil-alt"></i></a>
+                    <a href="#"> <i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    
+                    <label>Nome: {{name}}</label>
+                    
+                    <label>Descrição: {{description}}</label>
+                    
+                    <label>Data de criação: {{#dateFormat}}{{createDate}}{{/dateFormat}}</label>
+                    
+                    {{#if endDate}}
+                        <label>Data de finalização: {{#dateFormat}}{{endDate}}{{/dateFormat}}</label>
+                    {{/if}}
+                    
+                    <label>Done ?<input type="checkbox" checked></label>
+                    
+                </li>
+            </ul>    
+        {{else}}
+            <li>
+                <h2>Nenhuma tarefa atribuída</h2>
+            </li>
+        {{/each}}
+            
+        </nav>
     </div>
 
 {{else}}
+    <div>
+        <a href="/../task/add"><button class="btn-addtask"><i class="fas fa-plus-square"></i> Adicionar</button></a>
+    </div>
 
-<div>
-<a href="/../task/add"><button class="btn-addtask"><i class="fas fa-plus-square"></i> Adicionar</button></a>
-</div>
-
-<div>
-<h2>
-    Nenhuma task atribuída a esse usuário !
-</h2>
-</div>
-
-{{/each}}
+    <div>
+        <h2>Nenhuma task atribuída a esse usuário !</h2>
+    </div>
+{{/if}}

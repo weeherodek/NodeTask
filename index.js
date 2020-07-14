@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const passport = require('passport')
 const flash = require('connect-flash')
+const moment = require('moment')
 
 
 
@@ -53,6 +54,17 @@ const { allowedNodeEnvironmentFlags } = require('process')
 
 app.engine('handlebars', handlebars({
     defaultLayout: 'main',
+    helpers:{
+        dateFormat:(date)=>{
+            return moment(date).format("DD/MM/YYYY")
+        },
+        hourFormat:(date)=>{
+            return moment(date).format("HH:MM")
+        },
+        date_Format:(date)=>{
+            return moment(date).format("YYYY-MM-DD")
+        },
+    },
     allowedProtoMethods:{
         trim:true,
     }
@@ -80,6 +92,7 @@ const user = require('./routes/user')
 app.use("/user",user)
 
 const about = require('./routes/about')
+const { format } = require('path')
 app.use("/about",about)
 
 app.get("/", (req,res)=>{

@@ -54,6 +54,10 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
 }
 
+.clear{
+    float: none;
+}
+
 
 .body{
     margin-left: 150px;
@@ -92,15 +96,27 @@ body::-webkit-scrollbar-thumb{
 }
 
 .nav_login{
+    float: right;
+    display: inline;
     color:white;
     padding-right: 3px;
-    float: right;
     margin-right: 5px;
 }
 
-.btn-register-navbar{
-    float: right;
+.btn_register_nav{
+    display: inline;
     margin:auto;
+    border: none;
+    border-radius: 8%;
+    font-weight: bold;
+    background: gray;
+    padding: 4px;
+    margin-left: 15px;
+}
+
+.btn_register_nav:hover{
+    background-color: white;
+    cursor: pointer;
 }
 
 .register{
@@ -123,6 +139,7 @@ body::-webkit-scrollbar-thumb{
     background:white;
     color: black;
     border: 1px black;
+    cursor: pointer;
 }
 
 .login_img{
@@ -200,6 +217,7 @@ footer .content{
 
 .social .img-social:hover{
     border: 1px white solid;
+    cursor: pointer;
 }
 
 .links ul a{
@@ -217,11 +235,13 @@ footer .content{
 
 .contact-form .contact-input{
     padding-left: 15px;
+    padding: 8px;
     width: 90%;
-    background: lightgrey;
+    background: gray;
     color: black;
     border:none;
     font-weight: bold;
+    border-radius: 3%;
 }
 
 .contact-form .contact-input:hover{
@@ -229,7 +249,7 @@ footer .content{
 }
 
 .footer-section .enviar{
-    background: lightgrey;
+    background: grey;
     padding: 5px;
     float: right;
     border: 1px;
@@ -240,6 +260,7 @@ footer .content{
 
 .footer-section .enviar:hover{
     background-color: white;
+    cursor: pointer;
 }
 .footer-section img{
     width: 25px;
@@ -281,7 +302,8 @@ footer .content{
     font-weight: bold;
     background: gray;
     padding: 6px;
-    float: right;
+    margin:auto;
+    margin-top: 10px;
 }
 
 .login_img{
@@ -358,6 +380,7 @@ footer .content{
 .btn-register:hover{
     background: darkgray;
     color: black;
+    cursor: pointer;
 }
 
 .register-form input:hover{
@@ -377,6 +400,9 @@ footer .content{
     font-weight: 600;
 }
 
+.btn-addtask:hover{
+    cursor: pointer;
+}
 .btn-finishtask{
     border: none;
     background: palegreen;
@@ -412,3 +438,67 @@ footer .content{
     margin-top: 0px;
 }
 
+.logout:hover{
+    background: white;
+    cursor: pointer;
+}
+
+.task{
+    border: 1px solid black;
+    border-radius: 2%;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.task span{
+    text-align: center;
+    font-size: 2.0rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.task ul {
+    padding: 0px;
+    list-style-type: none;
+    border: solid 1px black;
+    border-radius: 2%;
+    padding: 8px;
+    background-color: var(--text-primary);
+}
+
+.task ul:hover{
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.todo{
+    display: inline-block;
+    width: 49%;
+    align-content: space-between;
+}
+
+.todo ul li{
+    border: thin black;
+}
+
+.task li{
+    padding: 0px;
+}
+
+.done{
+    display: inline-block;
+    width: 49%;
+    align-content: space-around;
+}
+
+.task li label{
+    display: block;
+    align-content: space-around;
+}
+
+.task li a{
+    float: right;
+    padding: 3px;
+}

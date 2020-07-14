@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const {authLogin} = require('../helpers/authLogin')
 
 const router = express.Router()
 const app = express()
@@ -10,14 +11,18 @@ require("../models/Task")
 const User = mongoose.model("user")
 const Task = mongoose.model("task")
 
-router.get("/", (req,res)=>{
-    
-    res.render("./task/task")
-
+router.get("/", authLogin,(req,res)=>{
+Task.find({user:req.user}).lean().then((task)=>{
+Task.find({user:req.user,done:false}).lean().then((taskundone) =>{
+Task.find({user:req.user,done:true}).lean().then((taskdone)=>{
+    res.render("./task/task",{task:task,taskundone:taskundone,taskdone:taskdone})
+    })    
+    })
+    })
 })
 
-router.get("/add", (req,res)=>{
-    res.render("./task/add")
+router.get("/add", authLogin,(req,res)=>{
+    res.render("./task/add", {minDate:Date.now()})
 })
 
 router.post("/add/new",(req,res)=>{
@@ -33,19 +38,33 @@ router.post("/add/new",(req,res)=>{
             name: req.body.name,
             endDate: req.body.endDate,
             description: req.body.description,
-            done: req.body.done
+            done: req.body.done,
+            user: req.user,
         }
         new Task(newTask).save((err)=>{
             if(err){
-                req.flash("error_msg","Houve um erro interno ao salvar sua task, tente novamente !")
+                req.flash("error_msg","Houve um erro interno ao salvar sua task, tente novamente !" + err)
                 res.redirect("/../task/add")
             }
             else{
                 req.flash("success_msg","Tarefa adicionada com sucesso !")
-                res.render("/")
+                res.redirect("/")
             }
         })
     }
+})
+
+router.get('/edit/:id',(req,res)=>{
+    Task.find({id:req.params.id}).lean().then((task)=>{
+        res.render('/task/edit',{task:task})
+    })
+})
+
+router.get('/delete/:id',(req,res)=>{
+    Task.find({id:req.params.id}).lean().then((task)=>{
+        req.flash('success_msg',"Task deletada com sucesso !")
+        res.redirect('/')
+    })
 })
 
 
