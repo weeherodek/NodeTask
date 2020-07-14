@@ -38,8 +38,8 @@
         {{#each taskundone}}
             <ul>
                 <li>
-                    <a href="#"> <i class="fas fa-pencil-alt"></i></a>
-                    <a href="#"> <i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    <a href="/task/edit/{{_id}}"> <i class="fas fa-pencil-alt"></i></a>
+                    <a href="/task/delete/{{_id}}"> <i class="fa fa-times-circle" aria-hidden="true"></i></a>
                     
                     <label>Nome: {{name}}</label>
                     
@@ -65,10 +65,6 @@
     </div>
 
 {{else}}
-    <div>
-        <a href="/../task/add"><button class="btn-addtask"><i class="fas fa-plus-square"></i> Adicionar</button></a>
-    </div>
-
     <div>
         <h2>Nenhuma task atribuída a esse usuário !</h2>
     </div>

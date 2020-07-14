@@ -55,13 +55,14 @@ router.post("/add/new",(req,res)=>{
 })
 
 router.get('/edit/:id',(req,res)=>{
-    Task.find({id:req.params.id}).lean().then((task)=>{
-        res.render('/task/edit',{task:task})
+    Task.find({_id:req.params.id}).lean().then((task)=>{
+        console.log(task);
+        res.render('task/edit',{task:task})
     })
 })
 
 router.get('/delete/:id',(req,res)=>{
-    Task.find({id:req.params.id}).lean().then((task)=>{
+    Task.findOneAndDelete({_id:req.params.id}).then((err)=>{
         req.flash('success_msg',"Task deletada com sucesso !")
         res.redirect('/')
     })

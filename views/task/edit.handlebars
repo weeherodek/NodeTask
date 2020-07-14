@@ -1,0 +1,8 @@
+{{#each task}}
+    <h2>Editar Task: {{name}}</h2>
+        <form  method="POST" action="/">
+            <label>Nome:</label>
+                <input type="text" placeholder="{{name}}">
+    </form>
+    {{else}}
+{{/each}}
