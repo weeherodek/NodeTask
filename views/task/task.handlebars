@@ -5,11 +5,11 @@
   <div class="task">
       <nav class="todo">
         <span>To do</span>
-        {{#each taskdone}}
+        {{#each taskdone}}  
             <ul>
                 <li>
-                    <a href="/task/edit/{{_id}}"> <i class="fas fa-pencil-alt"></i></a>
-                    <a href="/task/delete/{{_id}}"> <i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    <a href="/task/delete/{{_id}}"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    <a href="/task/edit/{{_id}}"><i class="fas fa-pencil-alt"></i></a>
 
                     <label>Nome: {{name}}</label>
             

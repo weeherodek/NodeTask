@@ -450,6 +450,7 @@ footer .content{
     text-align: center;
     width: 100%;
     margin-top: 15px;
+    list-style-type: none;
 }
 
 .task span{
@@ -499,6 +500,11 @@ footer .content{
 }
 
 .task li a{
+    float: right;
+    padding: 3px;
+}
+
+.task li form{
     float: right;
     padding: 3px;
 }

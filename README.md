@@ -1,11 +1,10 @@
 # NodeTask
 
-
-##Requisitos
+## Requisitos
 >Tenha instalado na máquina: Node.JS, mongodb e um navegador.
 
-##Inicializar
+## Inicializar
 >Para inicializar a aplicação basta digitar "NPM Start", a aplicação iniciará na URL: localhost:8080.
 
-##Autor
+## Autor
 >Philipe Herodek Neto - herodek_10@hotmail.com

@@ -1,8 +1,27 @@
 {{#each task}}
+
     <h2>Editar Task: {{name}}</h2>
-        <form  method="POST" action="/">
+        <form  method="POST" action="/task/edit/{{_id}}">
+{{/each}}
+        
+        {{#each username}}
+        <label>Usuário:</label>
+            <input type="text" placeholder="{{user}}"disabled>
+        {{/each}}
+
+{{#each task}}
             <label>Nome:</label>
-                <input type="text" placeholder="{{name}}">
+                <input type="text" placeholder="{{name}}" name="name">
+            <label>Data de finalização:</label>
+                <input type="date" name="endDate" value="{{#date_Format}}{{endDate}}{{/date_Format}}">
+            <label>Descrição</label>
+                <textarea name="" id="" cols="30" rows="10" placeholder="{{description}}" name="description"></textarea>
+            <label>Finalizado ?</label>
+            {{#if done}}
+                <input type="checkbox" value="true" name="done" checked>
+            {{else}}
+                <input type="checkbox" value="true" name="done">
+            {{/if}}
+            <button type="submit">Salvar</button>
     </form>
-    {{else}}
 {{/each}}

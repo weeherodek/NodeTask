@@ -1,4 +1,22 @@
 {{#if user}}
+<center><img src="/../img/img-register.png"></center>
+
+<!--<label>Usuário:</label>
+<input type="text" name="user" id="user" disabled placeholder="{{user}}">!-->
+    <form>
+    <Label>Nome:</Label>
+        <input type="text" name="name" id="name" placeholder="{{name}}">
+
+    <label>Sobrenome:</label>
+        <input type="text" name="middlename" id="middlename" placeholder="{{middlename}}">
+    <label for="password">Senha:</label>
+        <input type="password" placeholder="{{password}}">
+    
+    <label for="password2">Confirme sua senha:</label>
+        <input type="password" name="password2" id="password2" placeholder="{{password}}">
+
+            <button type="submit">Salvar</button>
+    </form>
 
 {{else}}
 <center><img src="/../img/img-register.png"></center>

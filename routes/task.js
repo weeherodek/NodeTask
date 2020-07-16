@@ -54,14 +54,29 @@ router.post("/add/new",(req,res)=>{
     }
 })
 
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',authLogin,(req,res)=>{
     Task.find({_id:req.params.id}).lean().then((task)=>{
-        console.log(task);
-        res.render('task/edit',{task:task})
+        
+    User.find({_id:req.user}).lean().then((username)=>{
+        res.render('task/edit',{username:username,task:task})
+    })
+    }).catch((err)=>{
+        req.flash("error_msg","Página não encontrada")
+        res.redirect('/')
     })
 })
 
-router.get('/delete/:id',(req,res)=>{
+router.post('/edit/:id', (req,res)=>{
+    const editTask = {
+        name: req.body.name,
+        endDate: req.body.endDate,
+        description: req.body.description,
+        done: req.body.done
+    }
+    Task.findOneAndUpdate({_id:req.params.id}, editTask)
+})
+
+router.post('/delete/:id',authLogin,(req,res)=>{
     Task.findOneAndDelete({_id:req.params.id}).then((err)=>{
         req.flash('success_msg',"Task deletada com sucesso !")
         res.redirect('/')
