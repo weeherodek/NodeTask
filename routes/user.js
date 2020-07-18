@@ -11,8 +11,47 @@ require('../models/User')
 
 const User = mongoose.model('user')
 
-router.get("/", (req,res)=>{
-    res.render("user/user")
+router.get("/", authLogin, (req,res)=>{
+    User.findOne({_id:req.user._id}).lean().then((user)=>{
+        res.render("user/user", {userlogin:user})
+    })
+})
+
+router.post("/edit/:id", (req,res)=>{
+    
+    let erro = []
+
+    if(req.body.password !== req.body.password2)
+        erro.push({text:"Confirme sua senha !"})
+
+    editUser = {
+        name : req.body.name,
+        middlename : req.body.middlename,
+        lastname : req.body.lastname,
+        password : req.body.password
+    }
+    
+    bcrypt.genSalt(10,(err,salt)=>{
+        bcrypt.hash(req.body.password,salt,(err,hash)=>{
+
+            if(err){
+                console.log("Houve um erro interno ao cadastrar seu usuário, tenta novamente\n" + err)
+            }
+            editUser.password = hash
+        })
+    })
+
+    if(erro.length > 0){
+            res.render("user/user" , {erro:erro})
+    }
+    else{
+        User.findByIdAndUpdate({_id:req.user._id}, editUser).lean().then((user)=>{
+            req.flash("success_msg","Usuário editado com sucesso !")
+            res.redirect("/user")
+        })
+    }
+
+    
 })
 
 router.get("/register", (req,res)=>{

@@ -5,23 +5,22 @@
 {{/each}}
         
         {{#each username}}
-        <label>Usuário:</label>
-            <input type="text" placeholder="{{user}}"disabled>
+        <label for="name">Usuário:</label>
+            <input type="text" name="name" placeholder="{{user}}"disabled><br>
         {{/each}}
 
 {{#each task}}
-            <label>Nome:</label>
-                <input type="text" placeholder="{{name}}" name="name">
-            <label>Data de finalização:</label>
-                <input type="date" name="endDate" value="{{#date_Format}}{{endDate}}{{/date_Format}}">
-            <label>Descrição</label>
-                <textarea name="" id="" cols="30" rows="10" placeholder="{{description}}" name="description"></textarea>
-            <label>Finalizado ?</label>
-            {{#if done}}
-                <input type="checkbox" value="true" name="done" checked>
-            {{else}}
-                <input type="checkbox" value="true" name="done">
-            {{/if}}
+            <label for="name">Nome:</label>
+                <input type="text" value="{{name}}" name="name"><br>
+            <label for="endDate">Data de finalização:</label>
+                <input type="date" name="endDate" value="{{#date_Format}}{{endDate}}{{/date_Format}}" min="{{#date_Format}}{{minDate}}{{/date_Format}}"><br>
+            <label for="description">Descrição:</label><br> 
+                <textarea name="description" id="description" cols="30" rows="10" name="description">{{description}}</textarea><br>
+            <label for="done">Finalizado ?</label><br>
+                <input type="radio" id="done" name="done" value="true" required>
+                <label for="done">Sim</label>
+                <input type="radio" id="done" name="done" value="false">
+                <label for="done">Não</label>
             <button type="submit">Salvar</button>
     </form>
 {{/each}}

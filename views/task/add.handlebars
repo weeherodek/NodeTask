@@ -13,8 +13,11 @@
         <input type="date" id="endDate" name="endDate" min="{{#date_Format}}{{minDate}}{{/date_Format}}"> <input type="time" id="endHour" name="endDate">
     </div>
     <div class="row">
-    <label for="done">Finalizado ?</label>
-        <input type="checkbox" value="true" name="done" id="done">
+    <label for="done">Finalizado ?</label><br>
+        <input type="radio" id="done" name="done" value="true">
+                <label for="done">Sim</label>
+                <input type="radio" id="done" name="done" value="false">
+                <label for="done">Não</label>
     </div>
     <div class="row">
     <button class="btn-finishtask" type="submit"><i class="fas fa-plus-square"></i> Adicionar</button>

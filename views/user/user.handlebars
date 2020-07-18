@@ -1,23 +1,32 @@
-{{#if user}}
-<center><img src="/../img/img-register.png"></center>
+{{#each erro}}
+    <div class="error_msg">{{text}}</div>
+{{else}}
+{{/each}}
 
-<!--<label>Usuário:</label>
-<input type="text" name="user" id="user" disabled placeholder="{{user}}">!-->
-    <form>
+{{#if userlogin}}
+<div class="edit_user">
+<label>Usuário:</label>
+<input type="text" name="user" id="user" disabled placeholder="{{userlogin.user}}">
+    <form method="POST" action="/user/edit/{{userlogin._id}}">
+
     <Label>Nome:</Label>
-        <input type="text" name="name" id="name" placeholder="{{name}}">
+        <input type="text" name="name" id="name" value="{{userlogin.name}}">
 
     <label>Sobrenome:</label>
-        <input type="text" name="middlename" id="middlename" placeholder="{{middlename}}">
+        <input type="text" name="middlename" id="middlename" value="{{userlogin.middlename}}">
+
+    <label>Ultimo nome:</label>
+        <input type="text" name="lastname" id="lastname" value="{{userlogin.lastname}}">
+
     <label for="password">Senha:</label>
-        <input type="password" placeholder="{{password}}">
+        <input type="password" name="password" placeholder="Digite sua senha...">
     
     <label for="password2">Confirme sua senha:</label>
-        <input type="password" name="password2" id="password2" placeholder="{{password}}">
+        <input type="password" name="password2" id="password2" placeholder="Confirme sua senha...">
 
-            <button type="submit">Salvar</button>
+            <button type="submit" class="btn-finishtask">Salvar</button>
     </form>
-
+</div>
 {{else}}
 <center><img src="/../img/img-register.png"></center>
 <center><h2>Faça <a class = "user-register"href="/user/login"><strong>login</strong></a> para visualizar seu perfil ou <a class="user-register"href="/user/register"><strong>cadastre-se</strong></a>.</h2></center>

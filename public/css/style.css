@@ -508,3 +508,30 @@ footer .content{
     float: right;
     padding: 3px;
 }
+
+.edit_user{
+    margin: auto;
+    text-align: center;
+    padding: 15px;
+}
+
+.home{
+    margin: auto;
+    text-align: center;
+    display: inline;
+}
+
+.countuser{
+    width: 25%;
+    border: 1px black solid;
+}
+
+.counttodo{
+    width: 25%;
+    border: 1px black solid;
+}
+
+.countdone{
+    width: 25%;
+    border: 1px black solid;
+}

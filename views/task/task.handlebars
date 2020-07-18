@@ -3,8 +3,8 @@
 </div>
 {{#if task}}
   <div class="task">
-      <nav class="todo">
-        <span>To do</span>
+      <nav class="done">
+        <span>Done</span>
         {{#each taskdone}}  
             <ul>
                 <li>
@@ -22,7 +22,7 @@
                         <label>Data de finalização: {{#dateFormat}}{{endDate}}{{/dateFormat}}</label>
                     {{/if}}
             
-                    <label>Done ?<input type="checkbox"></label>
+                    <label>Finalizado ? Sim</label>
                     
                 </li>
             </ul>
@@ -32,8 +32,8 @@
             </li>
         {{/each}}
         
-        </nav> <nav class="done">
-        <span>Done</span>
+        </nav> <nav class="todo">
+        <span>To Do</span>
         
         {{#each taskundone}}
             <ul>
@@ -51,7 +51,7 @@
                         <label>Data de finalização: {{#dateFormat}}{{endDate}}{{/dateFormat}}</label>
                     {{/if}}
                     
-                    <label>Done ?<input type="checkbox" checked></label>
+                    <label>Finalizado ?  Não</label>
                     
                 </li>
             </ul>    

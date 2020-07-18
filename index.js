@@ -82,6 +82,13 @@ mongoose.connect("mongodb://localhost/nodetask", {useNewUrlParser:true,useUnifie
 const db = mongoose.connection;
 db.on('err', console.error.bind(console,'Erro na conexão'));
 db.once('open', ()=>{console.log('Banco conectado !')})
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
+
+require('./models/User')
+require('./models/Task')
+const User = mongoose.model('user')
+const Task = mongoose.model('task')
 
 //Rotas
 
@@ -93,10 +100,28 @@ app.use("/user",user)
 
 const about = require('./routes/about')
 const { format } = require('path')
+const { use } = require('passport')
+const { count } = require('console')
 app.use("/about",about)
 
 app.get("/", (req,res)=>{
-    res.render('home')
+    User.aggregate([{
+        $group:{
+            _id: null,
+            count: {$sum: 1}
+        }
+    }]).then((countuser)=>{
+        Task.aggregate([{
+            $group:{
+                _id: "$done",
+                count : {$sum: 1}
+            }
+        }]).then((counttask)=>{
+            res.render('home',{countuser:countuser, counttodo: counttask.filter((todo)=>{return todo._id===false}), countdone: counttask.filter((done)=>{return done._id===true})})
+        })
+    })
+    
+
 })
 
 //Resto
