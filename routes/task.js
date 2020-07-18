@@ -79,7 +79,6 @@ router.post('/edit/:id', (req,res)=>{
             res.redirect("/task")
     }
         else{
-            console.log(result)
             req.flash("success_msg","Task editada com sucesso !")
             res.redirect("/task")
         }
