@@ -61,7 +61,9 @@ router.get("/register", (req,res)=>{
 
 router.post('/register/new', (req,res)=>{
     
+    
     var error_register = [];
+
 
     if(req.body.email != req.body.email2)
         error_register.push({text:"Confirme seu email !"})
@@ -77,8 +79,17 @@ router.post('/register/new', (req,res)=>{
     
     if(req.body.lastname == undefined || req.body.lastname == "")
         error_register.push({text:"Confirme seu último nome"})
+    
+    if(User.findOne( {email: req.body.email}) !== null)
+        error_register.push({text:"Email já está sendo utilizado."})
+
+    if(User.findOne({user:req.body.user}) !== null)
+        error_register.push({text:"Usuário já está sendo utilizado."})
+        
     if(error_register.length > 0)
         res.render("user/register", {error_register:error_register})
+
+
     else{
         const newUser ={
             user: req.body.user,
